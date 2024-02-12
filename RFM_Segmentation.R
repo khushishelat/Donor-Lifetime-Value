@@ -32,8 +32,6 @@ summary_table <- summary_table %>%
   )
 
 
-
-
 # Calculate average monetary value for each segment
 segment_avg_monetary_value <- summary_table %>%
   group_by(recency_quintile, frequency_quintile) %>%
@@ -54,8 +52,13 @@ heatmap_plot <- ggplot(segment_avg_monetary_value, aes(x = recency_quintile, y =
 # Print the heatmap plot
 print(heatmap_plot)
 
-
 head(summary_table)
 
 ggsave("/Users/khushishelat/Donor Lifetime Value/heatmap_rfm.png", plot = heatmap_plot, width = 8, height = 6, dpi = 300)
 
+ggplot(RFM_table, aes(x = frequency)) +
+  geom_histogram(binwidth = 1, fill = "skyblue", color = "black") +
+  labs(title = "Distribution of Frequency",
+       x = "Frequency",
+       y = "Frequency Count") +
+  theme_minimal()

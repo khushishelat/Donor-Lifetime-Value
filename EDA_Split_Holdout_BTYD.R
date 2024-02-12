@@ -204,3 +204,8 @@ tail(testing_data)
 
 write.csv(testing_data, file = "testing_transactions.csv", row.names = FALSE)
 write.csv(training_data, file = "training_transactions.csv", row.names = FALSE)
+
+# note that the BTYD_plus package can actually work through the holdout period for us
+# so, we also safe the full event log in a file
+write.csv(longdata_short, file = "event_log_complete.csv", row.names = FALSE)
+
